@@ -1,0 +1,45 @@
+{
+  "name": "tv-releases-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/tv-releases/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "format": ["cjs"],
+        "outputPath": "dist/libs/tv-releases/ui/dist",
+        "tsConfig": "libs/tv-releases/ui/tsconfig.lib.json",
+        "project": "libs/tv-releases/ui/package.json",
+        "entryFile": "libs/tv-releases/ui/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/tv-releases/ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/tv-releases/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/tv-releases/ui"],
+      "options": {
+        "jestConfig": "libs/tv-releases/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "tv-release-ui": "libs/tv-release/ui",
+    "tv-releases": "apps/tv-releases",
+    "tv-releases-e2e": "apps/tv-releases-e2e",
+    "tv-releases-ui": "libs/tv-releases/ui"
+  }
+}
